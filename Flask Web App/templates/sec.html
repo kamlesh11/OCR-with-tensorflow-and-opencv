@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+ 
+    
+ 
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            background-color: black;
+        }
+ 
+        .border img {
+            border-radius: 15px;
+            border: 2px solid #ffbd39;
+        }
+    </style>
+</head>
+ 
+<body>
+ 
+     
+    <div class="container-fluid">
+        <br>
+        <div class="row mb-5">
+ 
+            <div class="col-sm" style="margin-bottom: 23px;">
+                
+
+                <img style="height: 300px ; width: 300px;margin-left:100px;  border :5px solid #ffbd39;" 
+				src="{{ user_image }}" alt="User Image" class="img-thumbnail" >
+
+            </div>
+ <br><br><br>
+            
+            <div class="col-sm">
+ 
+                <div>
+                    <h3 style="padding: 15px; background-color: #ffbd39; color: white; "
+                           class="text-center mb-5 content-h3 ">
+                        {{pred_output}} </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+ 
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@700&amp;display=swap" rel="stylesheet">
+ 
+  
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            background-color: black;
+            
+        }
+ 
+        .carousel-inner img {
+            height: 70vh;
+        }
+ 
+        form {
+            display: flex;
+            height: 85vh;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            width: 60%;
+            text-align: center;
+            margin: auto;
+        }
+ 
+        .details h2 {
+             
+            position: relative;
+            top: 100px;
+            margin: auto;
+            color: rgb(18, 231, 231);
+            font-size: 3rem;
+        }
+ 
+        label:hover {
+            transform: scale(1.03);
+        }
+ 
+        .details h2 {
+            /* margin-bottom: 300px; */
+            position: relative;
+            top: 100px;
+            margin: auto;
+            color: #ffbd39;
+            font-size: 3rem;
+ 
+        }
+ 
+        .gallery-h1 h1 {
+
+            background-color:#ffbd39;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            border: 5px solid #ffbd39;
+ 
+        }
+ 
+        .details h1 {
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #ffbd39;
+
+            
+        }
+ 
+        .upload {
+ 
+            font-size: 20px;
+            background-color: rgb(255, 252, 252);
+            border-radius: 20px;
+            outline: none;
+            width: 315px;
+            color: rgb(0, 0, 0);
+            border: 3px solid rgb(45, 47, 49);
+ 
+        }
+ 
+        ::-webkit-file-upload-button {
+            color: white;
+            padding: 20px;
+            border: 2px solid #ffbd39;
+            background-color:#ffbd39;
+            border-radius: 15px;
+ 
+        }
+ 
+        ::-webkit-file-upload-button:hover {
+            border-radius: 20px;
+            border: 2px solid #ffbd39;
+ 
+        }
+ 
+        input[type="submit"] {
+            position: absolute;
+            margin-top: 150px;
+            padding: 15px 35px;
+            background-color: white;
+            border-radius: 15px;
+            color: black;
+            font-size: 1.5rem;
+            border: 4px solid #ffbd39;
+        }
+ 
+        .carousel-caption {
+            background: black;
+            border-radius: 10px;
+        }
+ 
+        .carousel-caption h3 {
+ 
+ 
+            font-family: 'Rowdies', cursive;
+            color: #ffbd39;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+ 
+        }
+ 
+        .carousel-caption p {
+            padding: 7px;
+ 
+        }
+ 
+        .img-thumbnail {
+            height: 300px;
+            border :5px solid #ffbd39;
+            background-color: black;
+        }
+ 
+        .Content-h5 {
+ 
+            padding: 15px;
+            
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+ 
+        @media only screen and (max-width: 325px) {
+            body {
+                font-size: x-small;
+                
+            }
+        }
+
+        #blah{
+            max-width:300px;
+            margin-bottom:140px;
+            margin-left:-300px;
+        }
+
+
+        
+    </style>
+ 
+ 
+</head>
+ 
+<body>
+ 
+  
+    <section>
+        
+        <div class="container-fluid details">
+             <form action="/predict" method="post" enctype="multipart/form-data" onsubmit="showloading()">
+
+                
+            </br></br><input id="file" type="file" name="image" onchange="readURL(this);" style="margin-bottom: -300px;"  class="upload">
+               
+                <input type="submit" value="Predict"style="margin-bottom: -350px;">
+
+                <img id="blah" src="https://via.placeholder.com/300/000000/000000?Text=WebsiteBuilders.com%20C/O%20https://placeholder.com/" alt="your image" height="300px" width="300px"/>
+
+ 
+            </form>
+        </div>
+    </section>
+
+    
+ 
+    
+ 
+        <script>
+            function readURL(input) {
+            
+
+            var fileInput =  
+                document.getElementById('file'); 
+              
+            var filePath = fileInput.value; 
+          
+            // Allowing file type 
+            var allowedExtensions =  
+            /(\.jpg|\.jpeg|\.png|\.gif)$/i; 
+              
+            if (!allowedExtensions.exec(filePath)) { 
+                alert('Please enter .JPG file'); 
+                fileInput.value = ''; 
+                return false; 
+            }  
+
+            else
+            {
+                if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+            }
+        }
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+ 
+</body>
+ 
+</html>
